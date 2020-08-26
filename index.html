@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Budget Calculator</title>
+</head>
+<body>
+    <!-- Budget Session -->
+    <h1>Budget</h1>
+    <div class="budget-input-container">
+        <h3>Amount</h3>
+        <input id="user-budget" class="budget-input" type="number">
+        <button id="calculate-btn" class="btn" type="submit" onclick="calculateBalance()"> Calculate</button>
+    </div>
+    <!-- change this net-result to flex -->
+    <!-- net-result output session -->
+    <div class="net-result">
+        <div><h2>Budget</h2><span>$</span><span class="budget-output">0</span></div>
+        <div><h2>Expenses</h2><span>$</span><span class="total-expenses-output">0</span></div>
+        <div><h2>Balance</h2><span>$</span><span class="balance-output">0</span></div>
+    </div>
+    <!-- expenses Session -->
+    <h1>Expenses</h1>
+    <div class="expenses-input-container">
+        <h3>Category</h3>
+        <input class="category-expense-input" type="text">
+        <h3>Name</h3>
+        <input class="name-exense-input" type="text">
+        <h3>Amount</h3>
+        <input class="amount-expense-input" type="number">
+        <button id="add-btn" class="btn" type="submit" onclick="addExpenseItem()"> Add Item</button>
+    </div>
+
+    <!-- Expense items table -->
+    <!-- initial values -->
+    <table class="expense-items-table">
+        
+    </table>
+    <span>
+        <span style="font-weight: bold; font-size: 1.5em;">Avg Cost per Items: </span>
+        <span style="font-size: 1.5em">$</span><span style="font-size: 1.5em" id="avg-cost">0</span>
+    </span>
+
+    <script src="app.js"></script>
+</body>
+</html>

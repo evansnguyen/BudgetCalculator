@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 400px;
+    margin: auto auto;
+}
+/* budget input session (top page)*/
+.budget-input-container{
+    width: 330px;
+    height: 100px;
+    border: 1px solid black;
+    display: inline-block;
+    padding-left: 20px;
+}
+.budget-input{
+    height:30px;
+}
+.btn{
+    border: 1px solid green;
+    height: 30px;
+}
+
+/* net result session (middle page) */
+/* items are forced to stay in 1 line - nowrap by default */
+.net-result{
+    width: 330px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.net-result span{
+    font-size: 2em;
+}
+
+/* Expenses input session */
+.expenses-input-container{
+    width: 330px;
+    height: 330px;
+    border: 1px solid black;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.expenses-input-container input{
+    height: 30px;
+    width: 300px;
+}
+
+.expense-items-table{
+    text-align: center;
+}
+
+th, td{
+    font-size: 1.5em;
+    padding:10px; 
+}
+
+.category-heading{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
