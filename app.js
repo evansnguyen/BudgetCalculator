@@ -147,10 +147,10 @@ function updateUI(newBudget, newTotalexpense, newBalance) {
 
     if (newBalance > 0) {
         this.showImg();
-        image.src = "photos/success-face.png"
+        image.setAttribute("src", "photos/success-face.png");
     } else if (newBalance < 0) {
         this.showImg()
-        image.src = "photos/sad-face.png"
+        image.setAttribute("src", "photos/sad-face.png");
     }
 }
 
@@ -159,18 +159,19 @@ function showImg() {
     if (isVisible == false) {
         isVisible = true;
         image.classList.remove("hide-item")
+        // hide the image after 5s
+        setInterval(() => {
+            hideImg();
+        }, 5000);
     }
+
 }
 
 //hide image
 function hideImg() {
-    if(isVisible == true){
+    if (isVisible == true) {
         isVisible = false;
         image.classList.add("hide-item")
     }
 }
 
-// hide the image after 5s
-setInterval(() => {
-    hideImg();
-}, 5000);
