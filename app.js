@@ -14,35 +14,35 @@ let image = document.getElementById("face-img");
 
 //variable use locally
 let netResult = 0;
-let subtotal = 0;
+let subtotal = 0; //variable to track subtotal of 1 category
 let isVisible = false; //variable for image
 
 
 
 function calculateBalance() {
     //validate input
-    let budget = parseInt(budgetInput.value)
+    let budget = parseInt(budgetInput.value);
     if (budget < 0) {
         window.alert("Starting amount must be a positive number");
         return;
     }
     //get the total expense
-    let expense = calculateTotalExpenses()
+    let expense = calculateTotalExpenses();
     if (budget >= 0) {
-        netResult = budget - expense
+        netResult = budget - expense;
     } else { //use the added budget or default budget "0"
-        budget = budgetOutput.firstChild.nodeValue
-        netResult = budget - expense
+        budget = budgetOutput.firstChild.nodeValue;
+        netResult = budget - expense;
     }
-    updateUI(budget, expense, netResult)
+    updateUI(budget, expense, netResult);
 }
 
 function calculateTotalExpenses() {
 
     let total = 0;
-    let expenselist = document.querySelectorAll(".expense-item")
+    let expenselist = document.querySelectorAll(".expense-item");
     for (let i = 0; i < expenselist.length; i++) {
-        total += parseInt(expenselist[i].innerHTML)
+        total += parseInt(expenselist[i].innerHTML);
     }
     return total;
 }
@@ -78,8 +78,11 @@ function addExpenseItem() {
             found = true
         }
     }
+
+    // insert new items into new category or the exist category
+    // as well as calculate Subtotal expense for the category
     if (rowToInsert == 0 && found == false) { //new category
-        //update subtotal
+        //reset subtotal for the new category
         subtotal = parseInt(amountExpense.value);
 
         let row1 = tableExpense.insertRow(rowToInsert);
@@ -109,7 +112,7 @@ function addExpenseItem() {
         cell4.innerHTML = amountExpense.value;
         cell4.setAttribute("class", "expense-item");
 
-        //update subtotal
+        //update subtotal with new item price
         subtotal += parseInt(amountExpense.value)
         subcell.innerHTML = "Subtotal: $" + subtotal;
     }
