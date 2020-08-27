@@ -7,7 +7,7 @@ body{
 }
 /* budget input session (top page)*/
 .budget-input-container{
-    width: 330px;
+    width: 340px;
     height: 100px;
     border: 1px solid black;
     display: inline-block;
@@ -15,6 +15,7 @@ body{
 }
 .budget-input{
     height:30px;
+    width: 200px;
 }
 .btn{
     border: 1px solid green;
@@ -30,12 +31,12 @@ body{
     text-align: center;
 }
 .net-result span{
-    font-size: 2em;
+    font-size: 1.6em;
 }
 
 /* Expenses input session */
 .expenses-input-container{
-    width: 330px;
+    width: 340px;
     height: 330px;
     border: 1px solid black;
     display: flex;
@@ -62,3 +63,17 @@ th, td{
     font-size: 1.5em;
 }
 
+.img-container{
+    display: flex;
+    justify-content: center;
+}
+
+#face-img{
+    width: 50px;
+    height: 65px;
+    padding-top: 15px;
+}
+
+.hide-item {
+    display: none;
+}
