@@ -90,6 +90,7 @@ function addExpenseItem() {
         let cell2 = row1.insertCell(1); //price
         subcell = row1.insertCell(2); //subtotal
 
+        // set values and class for headings
         cell1.innerHTML = categoryExpense.value;
         cell1.setAttribute("class", "category-heading")
         cell2.innerHTML = "Price";
@@ -100,6 +101,7 @@ function addExpenseItem() {
         let row2 = tableExpense.insertRow(rowToInsert + 1); //item
         let cell3 = row2.insertCell(0);
         let cell4 = row2.insertCell(1);
+        // set values and class for the item
         cell3.innerHTML = nameExpense.value;
         cell4.innerHTML = amountExpense.value;
         cell4.setAttribute("class", "expense-item")
@@ -108,6 +110,7 @@ function addExpenseItem() {
         let row2 = tableExpense.insertRow(rowToInsert + 1); //item
         let cell3 = row2.insertCell(0);
         let cell4 = row2.insertCell(1);
+        // set values and class for the item
         cell3.innerHTML = nameExpense.value;
         cell4.innerHTML = amountExpense.value;
         cell4.setAttribute("class", "expense-item");
