@@ -21,7 +21,7 @@ let isVisible = false; //variable for image
 
 function calculateBalance() {
     //validate input
-    let budget = parseInt(budgetInput.value);
+    let budget = parseFloat(budgetInput.value);
     if (budget < 0) {
         window.alert("Starting amount must be a positive number");
         return;
@@ -34,7 +34,7 @@ function calculateBalance() {
         budget = budgetOutput.firstChild.nodeValue;
         netResult = budget - expense;
     }
-    updateUI(budget, expense, netResult);
+    updateUI(budget.toFixed(2), expense.toFixed(2), netResult.toFixed(2));
 }
 
 function calculateTotalExpenses() {
@@ -42,7 +42,7 @@ function calculateTotalExpenses() {
     let total = 0;
     let expenselist = document.querySelectorAll(".expense-item");
     for (let i = 0; i < expenselist.length; i++) {
-        total += parseInt(expenselist[i].innerHTML);
+        total += parseFloat(expenselist[i].innerHTML);
     }
     return total;
 }
@@ -77,13 +77,15 @@ function addExpenseItem() {
             rowToInsert = row
             found = true
         }
+        console.log(found);
+
     }
 
     // insert new items into new category or the exist category
     // as well as calculate Subtotal expense for the category
     if (rowToInsert == 0 && found == false) { //new category
         //reset subtotal for the new category
-        subtotal = parseInt(amountExpense.value);
+        subtotal = parseFloat(amountExpense.value);
 
         let row1 = tableExpense.insertRow(rowToInsert);
         let cell1 = row1.insertCell(0); //category
@@ -95,7 +97,7 @@ function addExpenseItem() {
         cell1.setAttribute("class", "category-heading")
         cell2.innerHTML = "Price";
         cell2.setAttribute("class", "category-heading")
-        subcell.innerHTML = "Subtotal: $" + subtotal;
+        subcell.innerHTML = "Subtotal: $" + subtotal.toFixed(2);
         subcell.setAttribute("class", "category-heading")
 
         let row2 = tableExpense.insertRow(rowToInsert + 1); //item
@@ -103,7 +105,7 @@ function addExpenseItem() {
         let cell4 = row2.insertCell(1);
         // set values and class for the item
         cell3.innerHTML = nameExpense.value;
-        cell4.innerHTML = amountExpense.value;
+        cell4.innerHTML = parseFloat(amountExpense.value).toFixed(2);
         cell4.setAttribute("class", "expense-item")
     } else { //insert to the exist category
         subcell = tableExpense.rows[rowToInsert].cells[2] //subtotal cell
@@ -112,12 +114,12 @@ function addExpenseItem() {
         let cell4 = row2.insertCell(1);
         // set values and class for the item
         cell3.innerHTML = nameExpense.value;
-        cell4.innerHTML = amountExpense.value;
+        cell4.innerHTML = parseFloat(amountExpense.value).toFixed(2);
         cell4.setAttribute("class", "expense-item");
 
         //update subtotal with new item price
-        subtotal += parseInt(amountExpense.value)
-        subcell.innerHTML = "Subtotal: $" + subtotal;
+        subtotal += parseFloat(amountExpense.value)
+        subcell.innerHTML = "Subtotal: $" + subtotal.toFixed(2);
     }
 
     //calculate balance for new item added
@@ -133,7 +135,7 @@ function calculateAvgCost() {
     avg = calculateTotalExpenses() / totalItems;
 
     //show average cost to screen
-    avgCost.innerHTML = avg;
+    avgCost.innerHTML = avg.toFixed(2);
 }
 
 
