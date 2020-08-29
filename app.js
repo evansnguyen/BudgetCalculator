@@ -31,7 +31,7 @@ function calculateBalance() {
     if (budget >= 0) {
         netResult = budget - expense;
     } else { //use the added budget or default budget "0"
-        budget = budgetOutput.firstChild.nodeValue;
+        budget = parseFloat(budgetOutput.firstChild.nodeValue);
         netResult = budget - expense;
     }
     updateUI(budget.toFixed(2), expense.toFixed(2), netResult.toFixed(2));
@@ -77,8 +77,6 @@ function addExpenseItem() {
             rowToInsert = row
             found = true
         }
-        console.log(found);
-
     }
 
     // insert new items into new category or the exist category
@@ -145,7 +143,10 @@ function updateUI(newBudget, newTotalexpense, newBalance) {
     totalExpense.firstChild.nodeValue = newTotalexpense
     balance.firstChild.nodeValue = newBalance
 
-    if (newBalance > 0) {
+    //display happy face or sad face image
+    // >= 0 : spending within budget
+    // <0 : in debt
+    if (newBalance >= 0) {
         this.showImg();
         image.setAttribute("src", "photos/success-face.png");
     } else if (newBalance < 0) {
@@ -159,10 +160,10 @@ function showImg() {
     if (isVisible == false) {
         isVisible = true;
         image.classList.remove("hide-item")
-        // hide the image after 5s
+        // hide the image after 30s
         setInterval(() => {
             hideImg();
-        }, 5000);
+        }, 30000);
     }
 
 }
